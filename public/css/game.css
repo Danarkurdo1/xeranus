@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+
+.startBtn{
+    background: url('/img/button.png') no-repeat;
+    background-size:auto;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+}

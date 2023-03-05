@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs') %> 
+
+
+
+<!-- typing area -->
+<div id="header">
+  <div class="d-flex align-items-center">
+    <div id="info" class="mx-5">30</div>
+    <div class="btn-group btn-group-sm ms-5 timeMenu" role="group" aria-label="Basic radio toggle button group">
+      <input onclick="changeSecond(15)" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+      <label class="btn btn-outline-info" for="btnradio1">15</label>
+    
+      <input onclick="changeSecond(30)" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="checked">
+      <label class="btn btn-outline-info" for="btnradio2">30</label>
+    
+      <input onclick="changeSecond(60)" type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-info" for="btnradio3">60</label>
+    </div>
+  </div>
+  <div class="text-center lang-picker">
+    <select class="selectpicker" id="langPicker" onchange="changeLanguage()" data-width="fit">
+    <option id="Kurdish" data-content='<span class="flag-icon flag-icon-us"></span> English'>Kurdish</option>
+    <option id="english" data-content='<span class="flag-icon flag-icon-mx"></span> Español'>English</option>
+  </select>
+  </div>
+  <div id="wpm" class="wpm">wpm: </div>
+  
+</div>
+<div id="game" tabindex="0">
+  <div id="words"></div>
+  <div id="cursor"></div>
+  <div id="focus-error">Click here to focus</div>
+</div>
+<div id="buttons">
+  <button class="button" id="newGameBtn"><i class="fa-solid fa-rotate-right"></i></button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/typing.js"></script>
+<%- include('partials/footer.ejs') %> 
+
+    

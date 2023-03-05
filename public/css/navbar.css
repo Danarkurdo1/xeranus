@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+body{
+    background-color: #0f0f0f;
+}
+
+.navbar{
+    background-color: #0f0f0f !important;
+    margin-bottom: 10rem;
+}
+
+.navbar-brand img{
+    width: 110px;
+    height: 67px;
+}
+
+.nav-link{
+    font-family: 'Roboto', sans-serif;
+}
+

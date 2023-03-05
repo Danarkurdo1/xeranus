@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.lesson-header{
+    font-size: 20px;
+    color: #fff;
+}
+
+.link-list .nav-link{
+    color: #fcfcfc !important;
+}
+
+
+
+.main h4{
+    color: #fff;
+}
+
+.main div p{
+    color: #fcfcfc !important;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+.heading-title{
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.lenimg{
+    margin-left: 9rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width: 75%;
+    height: auto;
+}
+
+.mini-heading{
+    color: #03a9f4 !important;
+}

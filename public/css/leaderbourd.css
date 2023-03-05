@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+*{
+	font-family: 'Roboto Mono', monospace;
+}
+
+.bourd{
+	display: flex;
+	flex-direction: column;
+}
+
+.info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.info .hash{
+	color: #fff;
+	opacity: 50%;
+	margin-left: 20px;
+	font-size: 20px;
+}
+
+.info .user{
+	color: #fff;
+	opacity: 50%;
+	margin-left: 18px;
+	font-size: 18px;
+}
+
+.info .pointinfo{
+	color: #fff;
+	opacity: 50%;
+	margin-left: 18px;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: 10px;
+}
+
+.eachRow{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px 10px;
+}
+
+.line{
+	width: 100%;
+	height: 1px;
+	opacity: 25%;
+	background-color: #fff;
+}
+
+.eachRow p{
+	color: #fff;
+}
+
+.eachRow .username{
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+.eachRow .num{
+	font-size: 25px;
+	margin-top: 15px;
+}
+
+.eachRow img{
+	width: 5%;
+	margin-left: 10px;
+}
+
+.point {
+	margin-left: auto;
+
+}

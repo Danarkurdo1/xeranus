@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xeranus</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/30d4ee902c.js" crossorigin="anonymous"></script>
+    <!-- custome stylle -->
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/type.css">
+    <link rel="stylesheet" href="/css/game.css">
+    <link rel="stylesheet" href="/css/learning.css">
+    <link rel="stylesheet" href="/css/leaderbourd.css">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+  <body>
+
+    <div class="container mt-4">
+      <!-- Navbar -->
+      <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="img/xeranus_logo.png" alt="" srcset=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link navlink active" aria-current="page" href="/">Type</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navlink" href="game">Game</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navlink" href="Leaderboard">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navlink" href="Learning">Learning</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" style="display: flex; margin: 2px 0 !important;" aria-current="page" href="login"><p style="margin: 0; margin-right: 10px;"></p><i class="fa-regular fa-user"></i></a>
+                </li>
+                <li class="nav-item">
+                  <form action="logout" method="post">
+                    <button style="background-color: #0f0f0f; border: none; "><i class="fa-solid fa-right-from-bracket" style="color: white; margin-top: 0.6rem;"></i></button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+<div class="container">
+    <div class="container m-lg-5 mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="w-100 disp" src="/img/signup.svg" alt="" srcset="">
+            </div>
+            <div class="col-lg-6 formCenter">
+                <form class="signup-form ms-5" name="signupForm" action="/register" method="POST" onsubmit="return validateSignupForm()">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                    </div>
+                    <div class="form-input">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="username" placeholder="john@example.com">
+                        <i class="bi bi-check-circle icon-valid-email"></i>
+                        <i class="bi bi-exclamation-circle icon-invalid-email"></i>
+                        <p id="emailMsg" class="err-msg"></p>
+                    </div>
+                    <div class="form-input">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                        <i class="bi bi-check-circle icon-valid-pass"></i>
+                        <i class="bi bi-exclamation-circle icon-invalid-pass"></i>
+                        <p id="passMsg" class="err-msg"></p>
+                        <p>Your password must be 8 to 20 charecters.</p>
+                    </div>
+                    <button class="signup-btn" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/validation.js"></script>
+<%- include('partials/footer.ejs') %> 
