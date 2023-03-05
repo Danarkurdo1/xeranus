@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
 mongoose.set('strictQuery', false);
 
 // serve static Folder
