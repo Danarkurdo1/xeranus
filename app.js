@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
-    secret: process.env.SECRET,
+    secret: process.env.TOP_SECRET,
     resave: false,
     saveUninitialized: false,
   }));
