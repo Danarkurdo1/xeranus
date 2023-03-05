@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
-const findOrCreate = require('mongoose-findOrCreate');
 const port = process.env.PORT || 3000;
 mongoose.set('strictQuery', false);
 
@@ -37,7 +36,6 @@ const userSchema =new mongoose.Schema({
 });
 
 userSchema.plugin(passportLocalMongoose);
-userSchema.plugin(findOrCreate);
 
 const User = new mongoose.model("User", userSchema);
 
