@@ -28,3 +28,7 @@
 .cardab{
     justify-content: center;
 }
+.info p a{
+    color: #45a0f5;
+    text-decoration: none;
+}
