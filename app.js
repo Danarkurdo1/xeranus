@@ -115,6 +115,23 @@ app.get('/register', (req, res)=>{
     res.render('register');
 })
 
+app.get('/about', (req, res)=>{
+  let username =  "";
+  if(req.isAuthenticated()){
+      console.log('authenticated')
+      User.findById({_id: req.user._id}).then((user, err)=>{
+        if(err){
+          console.log(err);
+        }else{
+          username = user.username.slice(0, user.username.indexOf('@'));
+          res.render('about', { username : username });
+        }
+      })
+    }else{
+      res.render('about', { username : username });
+    }
+})
+
 app.post('/register', (req, res)=>{
  
     User.register({username: req.body.username}, req.body.password, (err, user)=>{

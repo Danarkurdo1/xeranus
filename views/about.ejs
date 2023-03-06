@@ -41,12 +41,12 @@
                   <a class="nav-link navlink" href="Learning">Learning</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link navlink" href="about">About</a>
-                </li>
+                    <a class="nav-link navlink" href="about">About</a>
+                  </li>
               </ul>
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link" style="display: flex; margin: 2px 0 !important;" aria-current="page" href="login"><p style="margin: 0; margin-right: 10px;"></p><i class="fa-regular fa-user"></i></a>
+                  <a class="nav-link" style="display: flex; margin: 2px 0 !important;" aria-current="page" href="login"><p style="margin: 0; margin-right: 10px;"><%= username %></p><i class="fa-regular fa-user"></i></a>
                 </li>
                 <li class="nav-item">
                   <form action="logout" method="post">
@@ -59,24 +59,5 @@
         </nav>
 
 
-<div class="container">
-    <div class="bourd">
-        <div class="info">
-            <p class="hash">#</p>
-            <p class="user">User</p>
-            <p class="pointinfo">Point</p>
-        </div>
-        <span class="line"></span>
-        <% users.forEach(function(user,index) { %>
-            <div class="eachRow">
-                <p class="num"><%= index+1 %></p>
-                <img src="/img/user.png" alt="" srcset="">
-                <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                <p class="point">1000</p>
-            </div>
-            <span class="line"></span>
-         <% }); %> 
-    </div>
-</div>
 
-<%- include('partials/footer.ejs') %> 
+        <%- include('partials/footer.ejs') %> 

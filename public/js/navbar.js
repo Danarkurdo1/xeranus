@@ -6,5 +6,6 @@ const currentPageUrl=location.href;
       menuItem[i-1].className="nav-link ";
       menuItem[i-2].className="nav-link ";
       menuItem[i-3].className="nav-link ";
+      menuItem[i-4].className="nav-link ";
     }
   }
