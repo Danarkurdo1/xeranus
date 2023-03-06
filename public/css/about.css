@@ -1,0 +1,30 @@
+.main{
+    text-align: center;
+}
+
+.xeranus_logo{
+    width: 30%;
+}
+
+.info{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 120px;
+    text-align: center;
+}
+
+.info h1{
+    margin-bottom: 2rem;
+    color: #f4f4f4;
+    display: block;
+}
+
+.info p{
+    color: #f4f4f4;
+    font-size: 20px;
+}
+
+.cardab{
+    justify-content: center;
+}
