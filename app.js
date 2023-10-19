@@ -9,6 +9,8 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const port = process.env.PORT || 3000
 mongoose.set('strictQuery', false);
 
+const logoutHtml = 'style="display: inline;"';
+
 // serve static Folder
 const path = require('path');
 app.use(express.static(__dirname + '/public'));
@@ -60,11 +62,11 @@ app.get('/', (req, res)=>{
             console.log(err);
           }else{
             username = user.username.slice(0, user.username.indexOf('@')) || "danar";
-            res.render('home', { username : username });
+            res.render('home', { username : username, logoutHtml:logoutHtml });
           }
         })
       }else{
-        res.render('home', { username : username });
+        res.render('home', { username : username, logoutHtml:"" });
       }
     
 });
@@ -79,19 +81,36 @@ app.get('/game', (req, res)=>{
           console.log(err);
         }else{
           username = user.username.slice(0, user.username.indexOf('@')) ;
-          res.render('game', { username : username });
+          res.render('game', { username : username, logoutHtml:logoutHtml });
         }
       })
     }else{
-      res.render('game', { username : username });
+      res.render('game', { username : username, logoutHtml:"" });
     }
 })
 
 app.get('/Leaderboard', (req, res)=>{
-    //get all users
-    User.find({}).then((users, err)=>{
-      res.render('leaderbourd', {users: users});
-    })
+    
+  let username =  "";
+    if(req.isAuthenticated()){
+      console.log('authenticated')
+      User.findById({_id: req.user._id}).then((user, err)=>{
+        if(err){
+          console.log(err);
+        }else{
+          //get all users
+          User.find({}).then((users, err)=>{
+            username = user.username.slice(0, user.username.indexOf('@')) ;
+            res.render('leaderbourd', {username : username, users: users, logoutHtml:logoutHtml});
+          })
+        }
+      })
+    }else{
+      //get all users
+      User.find({}).then((users, err)=>{
+        res.render('leaderbourd', {username : username, users: users, logoutHtml:""});
+      })
+    }
 })
 
 app.get('/learning', (req, res)=>{
@@ -103,11 +122,11 @@ app.get('/learning', (req, res)=>{
           console.log(err);
         }else{
           username = user.username.slice(0, user.username.indexOf('@'));
-          res.render('learning', { username : username });
+          res.render('learning', { username : username, logoutHtml:logoutHtml });
         }
       })
     }else{
-      res.render('learning', { username : username });
+      res.render('learning', { username : username, logoutHtml:"" });
     }
 })
 
@@ -124,11 +143,11 @@ app.get('/about', (req, res)=>{
           console.log(err);
         }else{
           username = user.username.slice(0, user.username.indexOf('@'));
-          res.render('about', { username : username });
+          res.render('about', { username : username, logoutHtml:logoutHtml });
         }
       })
     }else{
-      res.render('about', { username : username });
+      res.render('about', { username : username, logoutHtml:"" });
     }
 })
 
@@ -149,7 +168,19 @@ app.post('/register', (req, res)=>{
 })
 
 app.get('/login', (req, res)=>{
-    res.render('login');
+
+  if(req.isAuthenticated()){
+    console.log('authenticated')
+    User.findById({_id: req.user._id}).then((user, err)=>{
+      if(err){
+        console.log(err);
+      }else{
+        res.render('profile', {logoutHtml:"", username:""});
+      }
+    })
+  }else{
+    res.render('login', {logoutHtml:""});
+  }
 })
 
 app.post('/login', (req, res)=>{

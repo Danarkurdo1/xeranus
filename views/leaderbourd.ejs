@@ -46,11 +46,11 @@
               </ul>
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link" style="display: flex; margin: 2px 0 !important;" aria-current="page" href="login"><p style="margin: 0; margin-right: 10px;"></p><i class="fa-regular fa-user"></i></a>
+                  <a class="nav-link" style="display: flex; margin: 2px 0 !important;" aria-current="page" href="login"><p style="margin: 0; margin-right: 10px;"><%= username %></p><i class="fa-regular fa-user"></i></a>
                 </li>
                 <li class="nav-item">
                   <form action="logout" method="post">
-                    <button style="background-color: #0f0f0f; border: none; "><i class="fa-solid fa-right-from-bracket" style="color: white; margin-top: 0.6rem;"></i></button>
+                    <button  class="logoutBtnStyle" <%= logoutHtml %> style="display: none;"><i class="fa-solid fa-right-from-bracket" style="color: white; margin-top: 0.6rem;"></i></button>
                   </form>
                 </li>
               </ul>
@@ -59,8 +59,12 @@
         </nav>
 
 
-<div class="container">
-    <div class="bourd">
+<div class="container text-center">
+
+  <div class="row">
+    <div class="col">
+      <h2 class="leaderbourd-title">WPM</h2>
+      <div class="bourd">
         <div class="info">
             <p class="hash">#</p>
             <p class="user">User</p>
@@ -76,7 +80,32 @@
             </div>
             <span class="line"></span>
          <% }); %> 
+      </div>
     </div>
+
+    <div class="col">
+      <h2 class="leaderbourd-title l-title-space">GAME SCORE</h2>
+      <div class="bourd">
+        <div class="info">
+            <p class="hash">#</p>
+            <p class="user">User</p>
+            <p class="pointinfo">Point</p>
+        </div>
+        <span class="line"></span>
+        <% users.forEach(function(user,index) { %>
+            <div class="eachRow">
+                <p class="num"><%= index+1 %></p>
+                <img src="/img/user.png" alt="" srcset="">
+                <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
+                <p class="point">1000</p>
+            </div>
+            <span class="line"></span>
+         <% }); %> 
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <%- include('partials/footer.ejs') %> 

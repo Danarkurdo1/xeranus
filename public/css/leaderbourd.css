@@ -75,3 +75,17 @@
 	margin-left: auto;
 
 }
+
+.leaderbourd-title{
+	background: linear-gradient(#45a0f5, #26e3c2);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@media (max-width:510px)
+{
+  .l-title-space{
+	margin-top: 3rem;
+  }
+}

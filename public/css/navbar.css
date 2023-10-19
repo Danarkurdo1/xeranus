@@ -19,3 +19,8 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.logoutBtnStyle{
+    background-color: #0f0f0f;
+    border: none;
+}
+
