@@ -95,6 +95,29 @@ function gameOver(){
     addClass(document.getElementById('wpm'), 'showWpm');
     document.getElementById('wpm').innerHTML = 'Wpm: '+getWpm();
     wpm = getWpm();
+
+    //post data to server
+    const myUrl = window.location.href;
+  
+    var details = {
+        'wpm': wpm,
+    };
+
+    var formBody = [];
+    for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+    fetch(myUrl, {
+    method: 'POST',
+    headers: {
+     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body: formBody
+    })
 }
 
 

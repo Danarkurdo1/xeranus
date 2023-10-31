@@ -217,4 +217,29 @@ function endGame() {
   textAlign(CENTER);
   textSize(70);
 	text("Game Over", width / 2, height / 2);
+
+  //post data to server
+  const myUrl = window.location.href;
+  
+  var details = {
+    'gameScore': score,
+};
+
+var formBody = [];
+for (var property in details) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(details[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+
+fetch(myUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+  },
+  body: formBody
+})
+
+
 }

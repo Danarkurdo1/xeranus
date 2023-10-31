@@ -33,8 +33,8 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 const userSchema =new mongoose.Schema({
     username: String,
     password: String,
-    wpm: String,
-    gameScore: String,
+    wpm: {type: Number, default: 0},
+    gameScore: {type: Number, default: 0},
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -71,6 +71,26 @@ app.get('/', (req, res)=>{
     
 });
 
+app.post('/', (req, res)=>{
+    
+    let wpm = parseInt(req.body.wpm);
+    console.log(wpm);
+    if(req.isAuthenticated()){
+      User.findById({_id: req.user._id}).then((user, err)=>{
+        if(err){
+         console.log(err);
+       }else{
+         wpm = user.wpm + wpm;
+         user.updateOne({
+          wpm: wpm,
+          }).catch(err =>{
+            console.log(err)
+         })
+       }
+     })
+   }
+});
+
 
 app.get('/game', (req, res)=>{
   let username =  "";
@@ -87,6 +107,25 @@ app.get('/game', (req, res)=>{
     }else{
       res.render('game', { username : username, logoutHtml:"" });
     }
+})
+
+app.post('/game', (req, res)=>{
+  let gameScore = parseInt(req.body.gameScore);
+  console.log(gameScore);
+  if(req.isAuthenticated()){
+    User.findById({_id: req.user._id}).then((user, err)=>{
+      if(err){
+        console.log(err);
+      }else{
+        gameScore = user.gameScore + gameScore;
+        user.updateOne({
+          gameScore: gameScore,
+        }).catch(err =>{
+          console.log(err)
+        })
+      }
+    })
+  }
 })
 
 app.get('/Leaderboard', (req, res)=>{
