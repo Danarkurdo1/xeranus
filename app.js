@@ -141,12 +141,13 @@ app.get('/Leaderboard', (req, res)=>{
           User.find({}).then((users, err)=>{
             username = user.username.slice(0, user.username.indexOf('@')) ;
             res.render('leaderbourd', {username : username, users: users, logoutHtml:logoutHtml});
-          })
+          }) 
         }
       })
     }else{
       //get all users
       User.find({}).then((users, err)=>{
+        users.sort((b, a) => a.gameScore - b.gameScore); //gameScore from biggest to smallest
         res.render('leaderbourd', {username : username, users: users, logoutHtml:""});
       })
     }
@@ -214,7 +215,14 @@ app.get('/login', (req, res)=>{
       if(err){
         console.log(err);
       }else{
-        res.render('profile', {logoutHtml:"", username:""});
+        User.findById({_id: req.user._id}).then((user, err)=>{
+          if(err){
+            console.log(err);
+          }else{
+            username = user.username.slice(0, user.username.indexOf('@'));
+            res.render('profile', {logoutHtml:"", username:username, gameScore: user.gameScore, wpm: user.wpm});          
+          }
+        })
       }
     })
   }else{

@@ -97,7 +97,7 @@
                 <p class="num"><%= index+1 %></p>
                 <img src="/img/user.png" alt="" srcset="">
                 <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                <p class="point">1000</p>
+                <p class="point"><%= user.gameScore %></p>
             </div>
             <span class="line"></span>
          <% }); %> 
