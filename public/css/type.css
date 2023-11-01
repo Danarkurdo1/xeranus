@@ -43,7 +43,18 @@
 }
 
 .wpm{
-    font-size: 30px;
+    font-size: 25px;
+    background: -webkit-linear-gradient(#45a0f5, #26e3c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+    margin-right: 2rem;
+    display: none;
+}
+
+.accuracy{
+    font-size: 25px;
     background: -webkit-linear-gradient(#45a0f5, #26e3c2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

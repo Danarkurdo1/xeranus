@@ -7,6 +7,7 @@ const wordLength = words.length;
 let second = 30;
 let gameTime = second * 1000;
 let wpm ;
+let accuracy;
 
 function changeSecond(checkedInput){
     if(checkedInput === 15){
@@ -86,6 +87,24 @@ function getWpm() {
     return correctWords.length / gameTime * 60000;
   }
 
+  function getAccuracy() {
+    const words = [...document.querySelectorAll('.word')];
+    const lastTypedWord = document.querySelector('.word.current');
+    const lastTypedWordIndex = words.indexOf(lastTypedWord) + 1;
+    const typedWords = words.slice(0, lastTypedWordIndex);
+    const incorrectWords = typedWords.filter(word => {
+        const letters = [...word.children];
+        const incorrectLetters = letters.filter(letter => letter.className.includes('incorrect'));
+        const correctLetters = letters.filter(letter => letter.className.includes('correct'));
+        return incorrectLetters.length;
+    })
+    console.log(incorrectWords.length);
+    console.log(typedWords.length);
+    const correctWords = typedWords.length - incorrectWords.length;
+    const accuracy = ((correctWords/typedWords.length) * 100).toFixed(2);
+    return accuracy;
+  }
+
 
 function gameOver(){
     clearInterval(window.timer);
@@ -93,8 +112,11 @@ function gameOver(){
     document.getElementById('info').innerHTML = '30';
     console.log(getWpm());
     addClass(document.getElementById('wpm'), 'showWpm');
+    addClass(document.getElementById('accuracy'), 'showWpm');
     document.getElementById('wpm').innerHTML = 'Wpm: '+getWpm();
+    document.getElementById('accuracy').innerHTML = 'Accuracy: '+getAccuracy()+'%';
     wpm = getWpm();
+    accuracy = getAccuracy();
 
     //post data to server
     const myUrl = window.location.href;
@@ -235,6 +257,7 @@ function reload(){
     cursor.style.top = nextLetter.getBoundingClientRect().top + 'px';
     cursor.style.left = nextLetter.getBoundingClientRect().left + 'px';
     removeClass(document.getElementById('wpm'), 'showWpm');
+    removeClass(document.getElementById('accuracy'), 'showWpm');
 }
 
 
