@@ -28,6 +28,20 @@
 	margin-left: 18px;
 	font-size: 18px;
 }
+.acc{
+	color: #fff;
+	opacity: 50%;
+	margin-left: 150px;
+	font-size: 18px;
+}
+.accPoint{
+	padding-left: 3rem;
+}
+
+.timeTxt{
+	margin-bottom: 1rem;
+	color: #ffffffc4;
+}
 
 .info .pointinfo{
 	color: #fff;
@@ -73,7 +87,10 @@
 
 .point {
 	margin-left: auto;
+}
 
+.gameTxt{
+	margin-bottom: 3.9rem;
 }
 
 .leaderbourd-title{

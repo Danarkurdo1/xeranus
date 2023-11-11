@@ -60,31 +60,59 @@
 
 
 <div class="container text-center">
-
   <div class="row">
-    <div class="col">
+    <div class="col-8">
       <h2 class="leaderbourd-title">WPM</h2>
-      <div class="bourd">
-        <div class="info">
-            <p class="hash">#</p>
-            <p class="user">User</p>
-            <p class="pointinfo">Point</p>
-        </div>
-        <span class="line"></span>
-        <% users.forEach(function(user,index) { %>
-            <div class="eachRow">
-                <p class="num"><%= index+1 %></p>
-                <img src="/img/user.png" alt="" srcset="">
-                <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                <p class="point">1000</p>
+      <div class="row">
+        <div class="col-6">
+          <div class="bourd">
+            <h2 class="timeTxt">TIME: 15</h2>
+            <div class="info">
+                <p class="hash">#</p>
+                <p class="user">User</p>
+                <p class="acc">Accurecy</p>
+                <p class="pointinfo">Point</p>
             </div>
             <span class="line"></span>
-         <% }); %> 
+            <% users.forEach(function(user,index) { %>
+                <div class="eachRow">
+                    <p class="num"><%= index+1 %></p>
+                    <img src="/img/user.png" alt="" srcset="">
+                    <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
+                    <p class="point">1000</p>
+                    <p class="accPoint">1000</p>
+                </div>
+                <span class="line"></span>
+             <% }); %> 
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="bourd">
+            <h2 class="timeTxt">TIME: 30</h2>
+            <div class="info">
+                <p class="hash">#</p>
+                <p class="user">User</p>
+                <p class="acc">Accurecy</p>
+                <p class="pointinfo">Point</p>
+            </div>
+            <span class="line"></span>
+            <% users.forEach(function(user,index) { %>
+                <div class="eachRow">
+                    <p class="num"><%= index+1 %></p>
+                    <img src="/img/user.png" alt="" srcset="">
+                    <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
+                    <p class="point">1000</p>
+                    <p class="accPoint">1000</p>
+                </div>
+                <span class="line"></span>
+             <% }); %> 
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col">
-      <h2 class="leaderbourd-title l-title-space">GAME SCORE</h2>
+    <div class="col-4">
+      <h2 class="leaderbourd-title l-title-space gameTxt">GAME SCORE</h2>
       <div class="bourd">
         <div class="info">
             <p class="hash">#</p>

@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const Double = require('@mongoosejs/double');
 const port = process.env.PORT || 3000
 mongoose.set('strictQuery', false);
 
@@ -30,10 +31,17 @@ app.use(passport.session());
 
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 
+const wpmAccSchema = new mongoose.Schema({
+  wpm: {type: Number, default: 0},
+  accuracy: {type: Double, default: 0},
+});
+
 const userSchema =new mongoose.Schema({
     username: String,
     password: String,
-    wpm: {type: Number, default: 0},
+    fifteen: [wpmAccSchema],
+    thirty: [wpmAccSchema],
+    sixty: [wpmAccSchema],
     gameScore: {type: Number, default: 0},
 });
 
@@ -74,18 +82,50 @@ app.get('/', (req, res)=>{
 app.post('/', (req, res)=>{
     
     let wpm = parseInt(req.body.wpm);
-    console.log(wpm);
+    let accuracy = req.body.accuracy;
+    let second = parseInt(req.body.second);
     if(req.isAuthenticated()){
       User.findById({_id: req.user._id}).then((user, err)=>{
         if(err){
          console.log(err);
        }else{
-         wpm = user.wpm + wpm;
-         user.updateOne({
-          wpm: wpm,
-          }).catch(err =>{
-            console.log(err)
-         })
+         if(second === 15){
+          let wpmInDatabase = user.fifteen.map(a => a.wpm);
+          if(wpm > wpmInDatabase || wpmInDatabase == null){
+            user.updateOne({
+              fifteen: [{
+                wpm: wpm,
+                accuracy: accuracy,
+              }],
+              }).catch(err =>{
+                console.log(err)
+             })
+          }
+         }else if(second === 30){
+          let wpmInDatabase = user.thirty.map(a => a.wpm);
+          if(wpm > wpmInDatabase || wpmInDatabase == null){
+            user.updateOne({
+              thirty: [{
+                wpm: wpm,
+                accuracy: accuracy,
+              }],
+              }).catch(err =>{
+                console.log(err)
+             })
+          }
+         }else if(second === 60){
+          let wpmInDatabase = user.sixty.map(a => a.wpm);
+          if(wpm > wpmInDatabase || wpmInDatabase == null){
+            user.updateOne({
+              sixty: [{
+                wpm: wpm,
+                accuracy: accuracy,
+              }],
+              }).catch(err =>{
+                console.log(err)
+             })
+          }
+         }
        }
      })
    }

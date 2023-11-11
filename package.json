@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
-
   },
   "author": "danarkurdo",
   "license": "ISC",
   "dependencies": {
+    "@mongoosejs/double": "^0.3.0",
     "body-parser": "^1.20.2",
     "const": "^1.0.0",
     "dotenv": "^16.0.3",

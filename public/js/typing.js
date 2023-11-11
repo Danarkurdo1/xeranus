@@ -123,6 +123,8 @@ function gameOver(){
   
     var details = {
         'wpm': wpm,
+        'accuracy': accuracy,
+        'second': second,
     };
 
     var formBody = [];
