@@ -168,6 +168,7 @@ app.post('/game', (req, res)=>{
   }
 })
 
+
 app.get('/Leaderboard', (req, res)=>{
     
   let username =  "";
@@ -178,18 +179,36 @@ app.get('/Leaderboard', (req, res)=>{
           console.log(err);
         }else{
           //get all users
-          User.find({}).then((users, err)=>{
+          let query =  User.find({}).sort({'fifteen.wpm': -1});
+          let query1 =  User.find({}).sort({'thirty.wpm': -1});
+
+          let promise = query.exec();
+
+          promise.then(async (users)=>{
             username = user.username.slice(0, user.username.indexOf('@')) ;
-            res.render('leaderbourd', {username : username, users: users, logoutHtml:logoutHtml});
-          }) 
+
+            let promise1 = query1.exec();
+            let usersTh = await promise1.then();
+
+            res.render('leaderbourd', {username : username, gameUser:users , fifteenUser: users, thirtyUser: usersTh, logoutHtml:logoutHtml});
+          });
         }
       })
     }else{
       //get all users
-      User.find({}).then((users, err)=>{
-        users.sort((b, a) => a.gameScore - b.gameScore); //gameScore from biggest to smallest
-        res.render('leaderbourd', {username : username, users: users, logoutHtml:""});
-      })
+      let query =  User.find({}).sort({'fifteen.wpm': -1});
+      let query1 =  User.find({}).sort({'thirty.wpm': -1});
+
+      let promise = query.exec();
+
+        promise.then(async (users)=>{
+          let promise1 = query1.exec();
+          let usersTh = await promise1.then();
+
+
+          res.render('leaderbourd', {username : username, gameUser:users , fifteenUser: users, thirtyUser: usersTh, logoutHtml:""});
+      });
+
     }
 })
 

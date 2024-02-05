@@ -71,16 +71,16 @@
                 <p class="hash">#</p>
                 <p class="user">User</p>
                 <p class="acc">Accurecy</p>
-                <p class="pointinfo">Point</p>
+                <p class="pointinfo">Wpm</p>
             </div>
             <span class="line"></span>
-            <% users.forEach(function(user,index) { %>
+            <% fifteenUser.forEach(function(user,index) { %>
                 <div class="eachRow">
                     <p class="num"><%= index+1 %></p>
                     <img src="/img/user.png" alt="" srcset="">
                     <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                    <p class="point">1000</p>
-                    <p class="accPoint">1000</p>
+                    <p class="point"><%= user.fifteen.map((item)=>{return item.accuracy}) %></p>
+                    <p class="accPoint"><%= user.fifteen.map((item)=>{return item.wpm}) %></p>
                 </div>
                 <span class="line"></span>
              <% }); %> 
@@ -93,16 +93,16 @@
                 <p class="hash">#</p>
                 <p class="user">User</p>
                 <p class="acc">Accurecy</p>
-                <p class="pointinfo">Point</p>
+                <p class="pointinfo">Wpm</p>
             </div>
             <span class="line"></span>
-            <% users.forEach(function(user,index) { %>
+            <% thirtyUser.forEach(function(user,index) { %>
                 <div class="eachRow">
                     <p class="num"><%= index+1 %></p>
                     <img src="/img/user.png" alt="" srcset="">
                     <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                    <p class="point">1000</p>
-                    <p class="accPoint">1000</p>
+                    <p class="point"><%= user.thirty.map((item)=>{return item.accuracy}) %></p>
+                    <p class="accPoint"><%= user.thirty.map((item)=>{return item.wpm}) %></p>
                 </div>
                 <span class="line"></span>
              <% }); %> 
@@ -120,7 +120,8 @@
             <p class="pointinfo">Point</p>
         </div>
         <span class="line"></span>
-        <% users.forEach(function(user,index) { %>
+        <% gameUser.sort((b, a) => a.gameScore - b.gameScore).forEach(function(user,index) { %>
+          <%  %>
             <div class="eachRow">
                 <p class="num"><%= index+1 %></p>
                 <img src="/img/user.png" alt="" srcset="">
