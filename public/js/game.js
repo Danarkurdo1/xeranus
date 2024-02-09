@@ -1,6 +1,6 @@
 
 const WORDS = [ "game", "day", "java", "script", "rainbow", "program", 
-"bunny", "youtube", "github", "computer", "database" , "network", "kurdistan", "ranya", "mergasor", "oop",
+"bunny", "youtube", "github", "computer", "database" , "network", "kurdistan", "ranya", "erbil", "oop",
  "compiler", "system", "html", "css", "nodejs", "happy", "sad", "teacher", "people", "student", "mouse", 
  "keyboard", "screen", "mobile", "picture", "father", "mother", "brother", "sister"];
 
@@ -14,23 +14,34 @@ var backgroundImg;
 var stoneImg;
 var roboto;
 
+//size of buttons of game page
+let restartBtnPosX = 850;
+let restartBtnPosy = 750;
+
+let startBtnPosX = 980;
+let startBtnPosy = 750;
+
 var mode;
 
 function setup() {
 
   mode=0;
   createCanvas(450, 600);
-  canvas.style = "position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; border:2px solid #26e3c2; border-radius: 20px; box-shadow: 0 0 10px #26e3c2;";
- 
+  canvas.style = " display: grid; grid-template-columns: auto auto auto auto;  margin: auto; border:2px solid #26e3c2; border-radius: 20px; box-shadow: 0 0 10px #26e3c2;";
+
+  let buttonDiv = createDiv();
+
   reloadBtn = createButton('Restart', 'value'); //Creates <button>
-  reloadBtn.position(850, 750); //Sets Location Of Button
+  reloadBtn.position(restartBtnPosX, restartBtnPosy); //Sets Location Of Button
   reloadBtn.addClass('startBtn');
   reloadBtn.mousePressed(resetGame);
+  reloadBtn.parent(buttonDiv);
 
   reloadBtn = createButton('Start', 'value'); //Creates <button>
-  reloadBtn.position(980, 750); //Sets Location Of Button
+  reloadBtn.position(startBtnPosX, startBtnPosy); //Sets Location Of Button
   reloadBtn.addClass('startBtn');
   reloadBtn.mousePressed(startGame);
+  reloadBtn.parent(buttonDiv);
 
   ship = loadImage('assets/spaceship.png');
   backgroundImg = loadImage('assets/background.png');
@@ -74,6 +85,7 @@ function draw() {
   }
   
 }
+
 
 function keyPressed() {
   if (keyCode === enter) {
