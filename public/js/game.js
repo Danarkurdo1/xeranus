@@ -1,4 +1,3 @@
-document.getElementById("blank").style.display="block";
 
 const WORDS = [ "game", "day", "java", "script", "rainbow", "program", 
 "bunny", "youtube", "github", "computer", "database" , "network", "kurdistan", "ranya", "erbil", "oop",
