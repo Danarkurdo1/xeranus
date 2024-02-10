@@ -57,6 +57,7 @@ function setup() {
   roboto = loadFont('/assets/font/roboto.ttf');
 
   focus = null;
+  resizeCanvas(450, 600);
 }
 
 function resetGame(){
@@ -70,6 +71,7 @@ function startGame(){
 
 function draw() {
 
+  resizeCanvas(450, 600);
 
   if(mode === 0){
 
