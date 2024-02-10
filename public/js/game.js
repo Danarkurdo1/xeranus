@@ -23,6 +23,10 @@ let startBtnPosy = 750;
 
 var mode;
 
+function preload() {
+  resizeCanvas(450, 600);
+}
+
 function setup() {
 
   mode=0;
@@ -90,6 +94,8 @@ function draw() {
 function windowResized() {
   resizeCanvas(450, 600);
 }
+
+
 
 function keyPressed() {
   if (keyCode === enter) {
