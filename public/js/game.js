@@ -87,6 +87,10 @@ function draw() {
 }
 
 
+function windowResized() {
+  resizeCanvas(450, 600);
+}
+
 function keyPressed() {
   if (keyCode === enter) {
     mode = 1;
