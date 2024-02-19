@@ -79,8 +79,8 @@
                     <p class="num"><%= index+1 %></p>
                     <img src="/img/user.png" alt="" srcset="">
                     <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                    <p class="point"><%= ((user.fifteen.map((item)=>{return item.accuracy})) >= "0") ? user.fifteen.map((item)=>{return item.accuracy}) : 0 %></p>
-                    <p class="accPoint"><%= ((user.fifteen.map((item)=>{return item.wpm})) >= "0") ? user.fifteen.map((item)=>{return item.wpm}) : 0 %></p>
+                    <p class="point"><%= user.fifteen.map((item)=>{return item.accuracy}) %></p>
+                    <p class="accPoint"><%= user.fifteen.map((item)=>{return item.wpm}) %></p>
                 </div>
                 <span class="line"></span>
              <% }); %> 
@@ -101,8 +101,8 @@
                     <p class="num"><%= index+1 %></p>
                     <img src="/img/user.png" alt="" srcset="">
                     <p class="username"><%= user.username.slice(0, user.username.indexOf('@')) %></p>
-                    <p class="point"><%= ((user.thirty.map((item)=>{return item.accuracy})) >= "0") ? user.thirty.map((item)=>{return item.accuracy}) : 0 %></p>
-                    <p class="accPoint"><%= ((user.thirty.map((item)=>{return item.wpm})) >= "0") ? user.thirty.map((item)=>{return item.wpm}) : 0 %></p>
+                    <p class="point"><%= user.thirty.map((item)=>{return item.accuracy}) %></p>
+                    <p class="accPoint"><%= user.thirty.map((item)=>{return item.wpm}) %></p>
                 </div>
                 <span class="line"></span>
              <% }); %> 
