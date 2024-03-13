@@ -1,8 +1,9 @@
 
 const WORDS = [ "game", "day", "java", "script", "rainbow", "program", 
-"bunny", "youtube", "github", "computer", "database" , "network", "kurdistan", "ranya", "mergasor", "oop",
+"bunny", "youtube", "github", "computer", "database" , "network", "kurdistan", "ranya", "apocalypse", "oop",
  "compiler", "system", "html", "css", "nodejs", "happy", "sad", "teacher", "people", "student", "mouse", 
- "keyboard", "screen", "mobile", "picture", "father", "mother", "brother", "sister"];
+ "keyboard", "screen", "mobile", "picture", "father", "mother", "brother", "sister", "tremendous", "wealth", "power",
+ "rich", "poor", "lighter", "home", "country", "love", "live", "nature", "future", "paradise", "hall"];
 
 var focus; // Astroid the player is currently typing out
 var field = [];
