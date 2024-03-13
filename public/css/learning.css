@@ -4,40 +4,178 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-.lesson-header{
+
+.p-1{
+    text-decoration: none;
+    color: #fcfcfc;
     font-size: 20px;
-    color: #fff;
 }
 
-.link-list .nav-link{
+.p-1:hover{
+    color: #fcfcfc7e;
+}
+
+.lesson-title{
+    background: -webkit-linear-gradient(#45a0f5, #26e3c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lesson-paragraph{
+    color: #fcfcfc;
+}
+
+.green-text{
+    background: -webkit-linear-gradient(#45a0f5, #26e3c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.selected-key{
+    background-color: #333 !important;
     color: #fcfcfc !important;
 }
 
 
-
-.main h4{
-    color: #fff;
+.scrollspy-example {
+    position: relative;
+    height: 800px;
+    overflow: auto;
 }
 
-.main div p{
-    color: #fcfcfc !important;
-    margin-bottom: 2rem;
-    margin-left: 1rem;
-}
 
-.heading-title{
-    color: #fff;
-    margin-bottom: 2rem;
-}
-
-.lenimg{
-    margin-left: 9rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    width: 75%;
-    height: auto;
-}
-
-.mini-heading{
-    color: #03a9f4 !important;
-}
+/* virtual keybord */
+h1 {
+    text-align: center;
+    font-size: 1.8em;
+    font-family: monospace;
+    padding: 0.7em;
+  }
+  
+  .keyboard {
+      text-align: center;
+      font-size: 14px;
+      font-family: sans-serif;
+  }
+  
+  .keyboard__row {
+      display: inline-block;
+      height: 3em;
+      margin: 0.2em;
+  }
+  
+  .keyboard__row--h1 {
+      height: 1.7em;
+      line-height: 1.4em;
+  }
+  
+  .keyboard__row--h3 {
+      height: 3.3em;
+  }
+  
+  .keyboard__row > * {
+      position: relative;
+      background: #fcfcfc;
+      text-align: center;
+      color: #333;
+      float: left;
+      border-radius: 0.3em;
+      margin: 0.2em;
+      padding: 0.2em;
+      width: 3.3em;
+      height: 100%;
+      box-sizing: border-box;
+      cursor: pointer;
+      -webkit-user-select: none;
+      border: 1px solid #444;
+      box-shadow: 0 0.2em 0 0.05em #222;
+      border-bottom-color: #555;
+  }
+  
+  .keyboard__row--h1 > div {
+      width: 3.5em;
+  }
+  
+  .keyboard__row > div[data-pressed],
+  .keyboard__row > div:active {
+      background: #2a2a2a;
+      color: #aaa;
+      position: relative;
+      top: 0.2em;
+      box-shadow: 0 0 0 0.05em black;
+  }
+  
+  .key--w3 {
+      width: 4.6em;
+  }
+  
+  .key--w4 {
+      width: 6em;
+  }
+  
+  .key--w5 {
+      width: 6.5em;
+  }
+  
+  .key--w6 {
+      width: 8.3em;
+  }
+  
+  .key--space {
+      width: 18em;
+  }
+  
+  .key--double > * {
+      padding-top: 0.1em;
+  }
+  
+  .key--letter {
+      line-height: 2.8em;
+  }
+  
+  .key--bottom-left > * {
+      position: absolute;
+      text-align: left;
+      bottom: 0.4em;
+      left: 0.4em;
+  }
+  
+  .key--bottom-right > * {
+      position: absolute;
+      text-align: right;
+      bottom: 0.4em;
+      right: 0.4em;
+  }
+  
+  .key--fn > * {
+      font-size: 0.6em;
+      line-height: 1em;
+      padding-top: 1.2em;
+      padding-right: 0.2em;
+      text-align: right;
+      float: right;
+  }
+  
+  .key--word > * {
+      font-size: 0.8em;
+  }
+  
+  .key--arrow--tall > *,
+  .key--arrow > * {
+      font-size: 0.5em;
+      line-height: 3em;
+  }
+  
+  .key--arrow {
+      height: 1.8em;
+      margin-top: 1.7em;
+      line-height: 0.5em;
+  }
+  
+  .key--arrow--tall > * {
+      padding-top: 0.2em;
+  }
+  
+  .keyboard > .keyboard__row {
+      text-align: center;
+  }
